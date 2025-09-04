@@ -3,7 +3,6 @@
 A simple command-line project to manage and randomly select date plans.  
 The idea came from a real situation: having too many exciting date ideas but struggling to decide which one to start with. Instead of spending hours deciding, this project helps by letting the program pick for you.
 
----
 
 ## Features
 - **Add a plan**: Save your date ideas into a JSON file.  
@@ -12,7 +11,6 @@ The idea came from a real situation: having too many exciting date ideas but str
 - **Mark done**: Mark a chosen plan as completed once it’s accomplished.  
 - **Reset**: Reset all plans when you have gone through them all.  
 
----
 
 ## Statuses
 Each plan goes through different statuses:
@@ -22,7 +20,6 @@ Each plan goes through different statuses:
 - `Memory made` — when the plan has been marked as done.  
 - `Lets do it again` — when all plans are finished and reset.  
 
----
 
 ## Installation & Setup
 
@@ -36,7 +33,7 @@ Each plan goes through different statuses:
     ```bash
     python plans.py [command] [arguments]
     ```
-    
+
 3. Commands 
 
     - add new plan
