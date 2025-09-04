@@ -21,6 +21,14 @@ def add_plans(title):
     save_plans(plans)
     print(f"Added: {title} (Plan made)")
 
+def list_plans():
+    plans = load_plans()
+    if not plans:
+        print("No plans made yet, please add a date plan first")
+        return
+    for plan in plans:
+        print(f'{plan["id"]}.{plan["title"]} [{plan["status"]}]')
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python plans.py [add|list]")
@@ -32,6 +40,8 @@ def main():
             return
         title = " ".join(sys.argv[2:])
         add_plans(title)
+    elif command == "list":
+        list_plans()
 
 if __name__ == "__main__":
     main()
