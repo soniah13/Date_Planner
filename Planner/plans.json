@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "skating",
+    "status": "Plan made"
+  },
+  {
+    "id": 2,
+    "title": "pizza date",
+    "status": "Plan made"
+  },
+  {
+    "id": 3,
+    "title": "Ice cream date",
+    "status": "Date locked In"
+  }
+]

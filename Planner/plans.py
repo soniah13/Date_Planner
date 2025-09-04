@@ -1,5 +1,5 @@
 import json 
-from pathlib import path
+from pathlib import Path
 import sys
 import random
 
@@ -17,7 +17,7 @@ def save_plans(plans):
 
 def add_plans(title):
     plans = load_plans()
-    new_plan = {"id":len(plans)+1, "title":title, "status":"Plan made"}
+    new_plan = {"id": len(plans)+1, "title": title, "status": "Plan made"}
     plans.append(new_plan)
     save_plans(plans)
     print(f"Added: {title} (Plan made)")
@@ -28,7 +28,8 @@ def list_plans():
         print("No plans made yet, please add a date plan first")
         return
     for plan in plans:
-        print(f'{plan["id"]}.{plan["title"]} [{plan["status"]}]')
+        print(f'{plan["id"]}. {plan["title"]} [{plan["status"]}]')
+
 def draw_plan():
     plans = load_plans()
     unused = [plan for plan in plans if plan["status"] == "Plan made"]
@@ -45,8 +46,8 @@ def draw_plan():
         if plan["id"] == chosen["id"]:
             plan["status"] = "Date locked In"
             break
-        save_plans(plans)
-        print(f"Your date plan is: {chosen['title']}")
+    save_plans(plans)
+    print(f"Your date plan is: {chosen['title']}")
 
 def mark_done(plan_id:int):
     plans = load_plans()
@@ -55,12 +56,12 @@ def mark_done(plan_id:int):
             if plan["status"] == "Date locked In":
                 plan["status"] = "Memory made"
                 save_plans(plans)
-                print(f'Marked as done: {plan["title"]}(Memory made)')
+                print(f'Marked as done: {plan["title"]} (Memory made)')
                 return
             else:
                 print(f'Plan {plan["id"]} is not currently locked in. Status: {plan["status"]}')
                 return
-        print(f"No plan found with ID{plan_id}")
+    print(f"No plan found with ID {plan_id}")
 
 def reset_plans():
     plans = load_plans()
@@ -69,17 +70,16 @@ def reset_plans():
     save_plans(plans)
     print("All plans reset: 'Lets do it again'")
 
-
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python plans.py [add|list|draw|reset] [arguments]")
+        print("Usage: python plans.py [add|list|draw|done|reset] [arguments]")
         return
     
     command = sys.argv[1].lower()
 
     if command == "add":
         if len(sys.argv) < 3:
-            print("Usage: python plans.py add \'Ice cream date\'")
+            print("Usage: python plans.py add 'Ice cream date'")
             return
         title = " ".join(sys.argv[2:])
         add_plans(title)
@@ -90,7 +90,7 @@ def main():
     elif command == "draw":
         draw_plan()
 
-    elif command ==  "done":
+    elif command == "done":
         if len(sys.argv) < 3 or not sys.argv[2].isdigit():
             print("Usage: python plans.py done [plan_id]")
             return
@@ -100,8 +100,7 @@ def main():
         reset_plans()
 
     else:
-        print("Unknown command. Please use add,list, draw,done or reset")
-
+        print("Unknown command. Please use add, list, draw, done or reset")
 
 if __name__ == "__main__":
     main()
