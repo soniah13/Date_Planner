@@ -1,0 +1,2 @@
+[console_scripts]
+date-planner = planner.plans:main
