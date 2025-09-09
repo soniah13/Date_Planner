@@ -13,5 +13,40 @@
     "id": 3,
     "title": "Ice cream date",
     "status": "Lets do it again"
+  },
+  {
+    "id": 4,
+    "title": "swimming",
+    "status": "Lets do it again"
+  },
+  {
+    "id": 5,
+    "title": "paintballing",
+    "status": "Lets do it again"
+  },
+  {
+    "id": 6,
+    "title": "Zip lining",
+    "status": "Lets do it again"
+  },
+  {
+    "id": 7,
+    "title": "walk in karura",
+    "status": "Lets do it again"
+  },
+  {
+    "id": 8,
+    "title": "Hiking Ngong hills",
+    "status": "Lets do it again"
+  },
+  {
+    "id": 9,
+    "title": "Vacation",
+    "status": "Memory made"
+  },
+  {
+    "id": 10,
+    "title": "Trips",
+    "status": "Plan made"
   }
 ]
