@@ -5,7 +5,8 @@ WORKDIR /app
 # copy package and app
 COPY setup.py requirements.txt /app/
 COPY planner /app/planner
-COPY app.py /app/
+COPY planner/app.py /app/
+
 
 # install
 RUN pip install --no-cache-dir -r requirements.txt

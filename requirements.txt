@@ -1,6 +1,5 @@
 blinker==1.9.0
 click==8.2.1
-date-planner @ file:///mnt/c/Users/User/OneDrive/Desktop/DevOps_project/Date_Planner/dist/date_planner-1.0.0.zip#sha256=d2fd92a35b4559b3869aab66c45abd9a248f27185bb08da74b36b20c8a7dd860
 Flask==3.1.2
 gunicorn==23.0.0
 itsdangerous==2.2.0
