@@ -25,7 +25,7 @@ jobs:
         run: docker build -t ghcr.io/soniah13/date-planner:latest .
 
       - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@b6643a29fecd7f34b3597bc6acb0a98b03d33ff8
         with:
           image-ref: ghcr.io/soniah13/date-planner:latest
           format: 'table'
@@ -33,7 +33,7 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@ffc3010689be73b8e5ae0c57ce35968afd7909e8aster
         with:
           projectKey: soniah13_Date_Planner  
           token: ${{ secrets.SONAR_TOKEN }}
