@@ -1,0 +1,9 @@
+[flake8]
+max-line-length = 120
+exclude =
+    .git,
+    __pycache__,
+    env,         # your virtualenv folder
+    venv,        # if you sometimes call it venv
+    */migrations/*  # if you’re using Django migrations
+
