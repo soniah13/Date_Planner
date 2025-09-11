@@ -33,7 +33,7 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@ffc3010689be73b8e5ae0c57ce35968afd7909e8aster
+        uses: SonarSource/sonarcloud-github-action@ffc3010689be73b8e5ae0c57ce35968afd7909e8
         with:
           projectKey: soniah13_Date_Planner  
           token: ${{ secrets.SONAR_TOKEN }}
