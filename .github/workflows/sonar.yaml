@@ -1,0 +1,5 @@
+- name: SonarCloud Scan
+  uses: SonarSource/sonarcloud-github-action@master
+  with:
+    projectKey: soniah13_Date_Planner                
+    token: ${{ secrets.SONAR_TOKEN }} 
