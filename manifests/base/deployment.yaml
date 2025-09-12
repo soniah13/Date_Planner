@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: date-planner
-          image: ghcr.io/soniah13/date-planner:latest
-          imagePullPolicy: Never
+          image: ghcr.io/soniah13/date-planner:1a5e70670138dbe91519c4f0642796bd9e0b2014
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           resources:
