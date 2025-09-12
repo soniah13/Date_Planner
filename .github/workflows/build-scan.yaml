@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main", "Main" ]
 
+permissions:
+  contents: write
+
 jobs:
 
   build-push-scan:
@@ -42,3 +45,31 @@ jobs:
           exit-code: '1'
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+  
+  update-manifest:             # 👈 new job, same level as build-push-scan
+    runs-on: ubuntu-latest
+    needs: build-push-scan
+    steps:
+      - name: Checkout (with write permissions)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update deployment image tag in manifest
+        env:
+          IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/date-planner
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          sed -i -E "s|(image:\s*)(.+)|\1${IMAGE_NAME}:${IMAGE_TAG}|" deployment.yaml
+          sed -i -E "s|(imagePullPolicy:\s*)Never|\1IfNotPresent|" deployment.yaml || true
+          git add deployment.yaml
+          git commit -m "ci: bump image to ${IMAGE_TAG} [skip ci]" || echo "No changes to commit"
+
+      - name: Push manifest changes
+        run: git push origin HEAD:${{ github.ref_name }}
